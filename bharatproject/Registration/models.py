@@ -7,6 +7,7 @@ from django.core.validators import (
     URLValidator
 )
 from django.core.exceptions import ValidationError
+from .utils import STATE_CHOICES, MINISTRY_CHOICES
 
 def validate_end_date(value):
     """Custom validator to ensure end date is not before start date."""
@@ -35,7 +36,9 @@ class EventApplication(models.Model):
 
     username = models.CharField(
         max_length=100,
-        validators=[MinLengthValidator(3)]
+        validators=[MinLengthValidator(3)],
+        null=False,
+        blank=False,
     )
     user_type = models.CharField(max_length=20, choices=USER_TYPE_CHOICES)
 
@@ -43,7 +46,7 @@ class EventApplication(models.Model):
         max_length=255,
         blank=True,
         null=True,
-        validators=[RegexValidator(r'^[A-Za-z ]+$', 'Only letters and spaces allowed')]
+        choices=MINISTRY_CHOICES
     )
     department = models.CharField(
         max_length=255,
@@ -51,15 +54,15 @@ class EventApplication(models.Model):
         null=True,
         validators=[RegexValidator(r'^[A-Za-z ]+$', 'Only letters and spaces allowed')]
     )
-    state = models.CharField(max_length=255, blank=True, null=True)
-    district = models.CharField(max_length=255, blank=True, null=True)
+    state = models.CharField(max_length=255, blank=False, null=False, choices=STATE_CHOICES)
+    district = models.CharField(max_length=255, blank=False, null=False)
 
     event_name = models.CharField(
         max_length=150,
         validators=[MinLengthValidator(5)]
     )
-    event_state = models.CharField(max_length=100)
-    event_district = models.CharField(max_length=100)
+    event_state =models.CharField(max_length=255, blank=False, null=False, choices=STATE_CHOICES)
+    event_district = models.CharField(max_length=255, blank=False, null=False)
     event_venue = models.CharField(max_length=300)
 
     event_start_date = models.DateField()
@@ -107,3 +110,5 @@ class EventVideo(models.Model):
 
     def __str__(self):
         return f"Video for {self.event.event_name}"
+
+

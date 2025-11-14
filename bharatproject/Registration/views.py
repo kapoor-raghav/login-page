@@ -12,6 +12,18 @@ def load_json_file(filename):
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+# district API
+def districts(request):
+    data = load_json_file("district.json")
+    state_id = request.GET.get("state_id")
+
+    if state_id:
+        filtered = [d for d in data["districtList"] if str(d.get("parent_id")) == str(state_id)]
+        return JsonResponse({"districtList": filtered}, safe=False)
+
+    return JsonResponse(data, safe=False)
+
+
 # Ministries API
 def ministries(request):
     data = load_json_file("ministry.json")
@@ -57,14 +69,13 @@ def event_application_view(request):
             return redirect('event_application')
 
         else:
-            print(form.errors)
-            messages.error(request,form.errors)
+            messages.error(request, "❌ The form has errors")
     else:
         form = EventApplicationForm()
         image_form = EventImageForm()
         video_form = EventVideoForm()
 
-    return render(request, 'event_form.html', {
+    return render(request, 'event_form_2.html', {
         'form': form,
         'image_form': image_form,
         'video_form': video_form,

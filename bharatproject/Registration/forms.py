@@ -13,7 +13,8 @@ class EventApplicationForm(forms.ModelForm):
             'username', 'user_type', 'ministry_name', 'department','state','district',
             'event_name', 'event_state', 'event_district', 'event_venue',
             'event_start_date', 'event_end_date', 'event_time',
-            'no_of_participants', 'event_description', 'youtube_links'
+            'no_of_participants', 'event_description', 'youtube_links',
+            "event_district", "event_venue", "event_start_date",
         ]
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter User name'}),
@@ -23,9 +24,9 @@ class EventApplicationForm(forms.ModelForm):
             'district': forms.Select(attrs={'class': 'form-select'}),
             'department': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Department'}),
             'event_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter event name'}),
-            'event_state': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter State'}),
-            'event_district': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter District'}),
-            'event_venue': forms.Textarea(attrs={'class': 'form-control', 'rows': 2, 'placeholder': 'Enter event venue'}),
+            'event_state': forms.Select(attrs={'class': 'form-select'}),
+            'event_district': forms.Select(attrs={'class': 'form-select'}),
+            'event_venue': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter event venue'}),
             'event_start_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'event_end_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'event_time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),

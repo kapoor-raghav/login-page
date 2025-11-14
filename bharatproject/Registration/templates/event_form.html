@@ -26,67 +26,68 @@
     {% endif %}
 
     <div class="row mb-3">
-      <div class="col-md-6" >{{ form.username.label_tag }}{{ form.username }}</div>
-      <div class="col-md-6">{{ form.user_type.label_tag }}{{ form.user_type }}</div>
-    </div>
-
-    <div class="row mb-3" id="ministry" style="display: none;">
-      <div class="col-md-6">{{ form.ministry_name.label_tag }}{{ form.ministry_name }}</div>
-      <div class="col-md-6">{{ form.department.label_tag }}{{ form.department }}</div>
-    </div>
-    <div class="row mb-3" id="state" style="display: none;">
-      <div class="col-md-6">{{ form.state.label_tag }}{{ form.state }}</div>
-      <div class="col-md-6">{{ form.district.label_tag }}{{ form.district }}</div>
-    </div>
-
-    <div class="row mb-3">
-      <div class="col-md-6">{{ form.event_name.label_tag }}{{ form.event_name }}</div>
-      <div class="col-md-6">{{ form.event_state.label_tag }}{{ form.event_state }}</div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-6">{{ form.event_district.label_tag }}{{ form.event_district }}</div>
-      <div class="col-md-6">{{ form.event_venue.label_tag }}{{ form.event_venue }}</div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4">{{ form.event_start_date.label_tag }}{{ form.event_start_date }}</div>
-      <div class="col-md-4">{{ form.event_end_date.label_tag }}{{ form.event_end_date }}</div>
-      <div class="col-md-4">{{ form.event_time.label_tag }}{{ form.event_time }}</div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-6">{{ form.no_of_participants.label_tag }}{{ form.no_of_participants }}</div>
-      <div class="col-md-6">{{ form.event_description.label_tag }}{{ form.event_description }}</div>
-    </div>
-
-    <h4 class="section-title">Upload Media & Documents</h4>
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <label>Event Pictures (Up to 5 images)</label>
-        {{ image_form.image }}
-      </div>
-      <div class="col-md-6">
-        <label>Event Videos (Up to 5 videos)</label>
-        {{ video_form.video }}
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <div class="col-12">{{ form.youtube_links.label_tag }}{{ form.youtube_links }}</div>
-    </div>
-
-    <div class="form-check mb-3">
-      <input type="checkbox" class="form-check-input" id="terms">
-      <label class="form-check-label" for="terms">
-        By continuing, you agree to <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a> of Vande Mataram.
-      </label>
-    </div>
-
-    <div class="d-flex justify-content-end">
-      <button type="reset" class="btn btn-outline-secondary me-2">Cancel</button>
-      <button type="submit" class="btn btn-warning text-white">Upload Event</button>
-    </div>
-  </form>
+  <div class="col-md-6">{{ form.username.label_tag }}<span style="color: red;">*</span>{{ form.username }}</div>
+  <div class="col-md-6">{{ form.user_type.label_tag }}<span style="color: red;">*</span>{{ form.user_type }}</div>
 </div>
-</body>
+
+<div class="row mb-3" id="ministry" style="display: none;">
+  <div class="col-md-6">{{ form.ministry_name.label_tag }}<span style="color: red;">*</span>{{ form.ministry_name }}</div>
+  <div class="col-md-6">{{ form.department.label_tag }}<span style="color: red;">*</span>{{ form.department }}</div>
+</div>
+
+<div class="row mb-3" id="state" style="display: none;">
+  <div class="col-md-6">{{ form.state.label_tag }}<span style="color: red;">*</span>{{ form.state }}</div>
+  <div class="col-md-6">{{ form.district.label_tag }}<span style="color: red;">*</span>{{ form.district }}</div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-6">{{ form.event_name.label_tag }}<span style="color: red;">*</span>{{ form.event_name }}</div>
+  <div class="col-md-6">{{ form.event_state.label_tag }}<span style="color: red;">*</span>{{ form.event_state }}</div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-6">{{ form.event_district.label_tag }}<span style="color: red;">*</span>{{ form.event_district }}</div>
+  <div class="col-md-6">{{ form.event_venue.label_tag }}<span style="color: red;">*</span>{{ form.event_venue }}</div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-4">{{ form.event_start_date.label_tag }}<span style="color: red;">*</span>{{ form.event_start_date }}</div>
+  <div class="col-md-4">{{ form.event_end_date.label_tag }}<span style="color: red;">*</span>{{ form.event_end_date }}</div>
+  <div class="col-md-4">{{ form.event_time.label_tag }}<span style="color: red;">*</span>{{ form.event_time }}</div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-6">{{ form.no_of_participants.label_tag }}<span style="color: red;">*</span>{{ form.no_of_participants }}</div>
+  <div class="col-md-6">{{ form.event_description.label_tag }}<span style="color: red;">*</span>{{ form.event_description }}</div>
+</div>
+
+<h4 class="section-title">Upload Media & Documents</h4>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label>Event Pictures (Up to 5 images)<span style="color: red;">*</span></label>
+    {{ image_form.image }}
+  </div>
+  <div class="col-md-6">
+    <label>Event Videos (Up to 5 videos)<span style="color: red;">*</span></label>
+    {{ video_form.video }}
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-12">{{ form.youtube_links.label_tag }}<span style="color: red;">*</span>{{ form.youtube_links }}</div>
+</div>
+
+<div class="form-check mb-3">
+  <input type="checkbox" class="form-check-input" id="terms" name="terms" value="accepted" required>
+  <label class="form-check-label" for="terms" aria-required="true">
+    By continuing, you agree to <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a> of Vande Mataram <span style="color: red;">*</span>
+  </label>
+</div>
+
+<div class="d-flex justify-content-end">
+  <button type="reset" class="btn btn-outline-secondary me-2">Cancel</button>
+  <button type="submit" class="btn btn-warning text-white">Upload Event</button>
+</div>
 
 <script>  
 document.getElementById("id_user_type").addEventListener("change", function() {
